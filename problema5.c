@@ -19,7 +19,15 @@ typedef enum {
 AlarmStatus get_parking_alarm_status(uint8_t sensor_register)
 {
   // Modificar esta funcion
-  return 0;
+      if (sensor_register & REAR_SENSORS_MASK) {
+        return RED_ALARM;
+    }
+
+    if (sensor_register & FRONT_SENSORS_MASK) {
+        return YELLOW_ALARM;
+    }
+
+    return NO_ALARM;
 }
 
 
